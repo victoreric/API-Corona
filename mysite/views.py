@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from datetime import datetime, timedelta
 import requests
 
 def home(request):
@@ -25,13 +26,18 @@ def home(request):
         result['sembuh'] = d['sembuh']
         result['meninggal'] = d['meninggal']
         case_indo.append(result)
+    
+    update = datetime.now()-timedelta(days=1)
         
     context = {
         'Title' : 'API-Corona',
         'Judul' : 'Corona Virus Cases in Indonesia',
         'data' : case_prov,
-        'case_indo' : case_indo 
+        'case_indo' : case_indo,
+        'update' : update,
     }
     return render (request,'index.html', context)
+
+    
 
 

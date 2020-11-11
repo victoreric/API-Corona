@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,14 +15,16 @@
     <title>{{Title}}</title>
   </head>
   <body>
+
 <div class="container mt-5">
     <center>  
         <h1>{{Judul}}</h1>
+        <img src="{% static 'indonesia-flag-wave-icon-128.png'  %}" alt="" class=pb-2>
     </center> 
 {% for indo in case_indo %}
         <div class="card text-center">
             <div class="card-header">
-               <h4>{{indo.name}}</h4>
+               <h6>last update : {{update}}</h6>
             </div>
             <div class="card-body">
             <h5 class="card-title"> Positive  : {{indo.positif}} cases</h5>
